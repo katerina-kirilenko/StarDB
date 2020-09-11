@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+.header h3 a {
+  color: #fff;
+}
+
 .header h3 a:hover {
   text-decoration: none;
 }
@@ -18,4 +22,9 @@
 .header ul li:hover {
   background-color: #444;
   cursor: pointer;
+}
+
+.header ul li a:hover {
+  color: #00bc8c;
+  text-decoration: none;
 }
