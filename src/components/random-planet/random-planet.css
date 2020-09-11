@@ -1,0 +1,23 @@
+.random-planet {
+  padding: 1rem;
+}
+
+.random-planet .image-wrap {
+  margin-right: 30px;
+}
+
+.random-planet .planet-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.planet-description h4 {
+  margin-bottom: 16px;
+}
+
+.planet-description li {
+  list-style: none;
+  margin-left: 1rem;
+  line-height: 1.75rem;
+}
