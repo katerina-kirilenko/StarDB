@@ -12,18 +12,25 @@ class App extends Component {
 
   render() {
     return (
-      <div className='app'>
-        <Header />
-        <RandomPlanet />
-        <div className='row mb2'>
-          <div className='col-md-6'>
-            <ItemList />
+      <>
+        <div className='app'>
+          <Header />
+          <RandomPlanet />
+          <div className='row mb2'>
+            <div className='col-md-6'>
+              <ItemList />
+            </div>
+            <div className='col-md-6'>
+              <PersonDetails />
+            </div>
           </div>
-          <div className='col-md-6'>
-            <PersonDetails />
-          </div>          
         </div>
-      </div>
+        <div className='background-app'>
+          <div className='stars'></div>
+          <div className='twinkling'></div>
+          <div className='clouds'></div>
+        </div>
+      </>
     );
   }
 }
