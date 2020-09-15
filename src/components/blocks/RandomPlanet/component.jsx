@@ -8,16 +8,26 @@ import ErrorIndicator from "../ErrorIndicator";
 import "./style.css";
 import noPhoto from "../../../assets/no_photo.png";
 
-
 export default class RandomPlanet extends Component {
   swapiService = new SwapiService();
 
   state = {
     planet: {},
-    photo: '',
+    photo: "",
     loading: true,
     error: false,
   };
+
+  componentDidMount() {
+    console.log("Did Mount");
+    
+    this.updatePlanet();
+    this.interval = setInterval(this.updatePlanet, 10000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
 
   onPlanetLoaded = (planet) => {
     this.setState({
@@ -33,8 +43,9 @@ export default class RandomPlanet extends Component {
     });
   };
 
-  updatePlanet() {
-    const id = Math.floor(Math.random() * 25) + 2;
+  updatePlanet = () => {
+    console.log("update");
+    const id = Math.floor(Math.random() * 25) + 3;
 
     this.swapiService
       .getPlanet(id)
@@ -42,7 +53,7 @@ export default class RandomPlanet extends Component {
       .catch(this.onError);
 
     this.updatePhoto(id);
-  }
+  };
 
   async updatePhoto(id) {
     const response = await getPhoto("planets", id);
@@ -51,18 +62,17 @@ export default class RandomPlanet extends Component {
     this.setState({ photo: url });
   }
 
-  constructor() {
-    super();
-    this.updatePlanet();
-  }
-
   render() {
+    console.log("render");
+
     const { planet, loading, error } = this.state;
 
     const hasData = !(loading || error);
     const errorMessage = error ? <ErrorIndicator /> : null;
     const spinner = loading ? <Spinner /> : null;
-    const content = hasData ? <PlanetView planet={planet} photo={this.state.photo}/> : null;
+    const content = hasData ? (
+      <PlanetView planet={planet} photo={this.state.photo} />
+    ) : null;
 
     return (
       <div className='random-planet d-flex jumbotron rounded'>
@@ -98,7 +108,7 @@ const PlanetView = ({ planet, photo }) => {
             <span>{diameter}</span>
           </li>
         </ul>
-      </div>
+      </div>      
     </React.Fragment>
   );
 };
