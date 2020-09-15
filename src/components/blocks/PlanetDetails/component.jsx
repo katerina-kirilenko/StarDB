@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./planet-details.css";
+import "./style.css";
 
 const PlanetDetails = () => {
   return <div className='planet-details'></div>;

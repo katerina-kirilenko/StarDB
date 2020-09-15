@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 
-import Header from "../header";
-import RandomPlanet from "../random-planet";
-import ItemList from "../item-list";
-import PersonDetails from "../person-details";
+import Header from "./blocks/Header";
+import RandomPlanet from "./blocks/RandomPlanet";
+import ItemList from "./blocks/ItemList";
+import PersonDetails from "./blocks/PersonDetails";
+import AppBackground from "./blocks/AppBackground";
 
 import "./app.css";
 
@@ -25,11 +26,7 @@ class App extends Component {
             </div>
           </div>
         </div>
-        <div className='background-app'>
-          <div className='stars'></div>
-          <div className='twinkling'></div>
-          <div className='clouds'></div>
-        </div>
+        <AppBackground />
       </>
     );
   }

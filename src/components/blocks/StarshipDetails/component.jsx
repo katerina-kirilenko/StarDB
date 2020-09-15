@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./starship-details.css";
+import "./style.css";
 
 const StarshipDetails = () => {
   return <div className='starship-details'></div>;

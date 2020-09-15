@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
-import SwapiService from "../../services/swapi-service";
-import getPhoto from "../../services/photo-service";
-import Spinner from "../spinner";
-import ErrorIndicator from "../error-indicator";
+import SwapiService from "../../../api/SwapiService";
+import getPhoto from "../../../api/PhotoService";
+import Spinner from "../Spinner";
+import ErrorIndicator from "../ErrorIndicator";
 
-import "./random-planet.css";
-import noPhoto from "../../img/no_photo.png";
+import "./style.css";
+import noPhoto from "../../../assets/no_photo.png";
 
 
 export default class RandomPlanet extends Component {
