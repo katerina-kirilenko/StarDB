@@ -12,12 +12,12 @@
   border-radius: 10px;
 }
 
-.planet-description h4 {
-  margin-bottom: 16px;
+.planet-description .term {
+  margin-right: 0.5rem;
 }
 
-.planet-description li {
-  list-style: none;
-  margin-left: 1rem;
-  line-height: 1.75rem;
+.planet-description .list-group-item {
+  padding-left: 0;
+  margin-left: 1.25rem;
+  line-height: 1rem;
 }
