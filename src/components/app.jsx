@@ -6,7 +6,7 @@ import ItemList from "./blocks/ItemList";
 import PersonDetails from "./blocks/PersonDetails";
 import AppBackground from "./blocks/AppBackground";
 
-import "./app.css";
+import "./style.css";
 
 class App extends Component {
   state = {};
