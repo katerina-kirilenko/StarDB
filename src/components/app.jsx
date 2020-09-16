@@ -12,6 +12,7 @@ import "./style.css";
 class App extends Component {
   state = {
     randomPlanetIsOpen: true,
+    selectedPerson: null, 
   };
 
   handleClickToggle = () => {
@@ -19,6 +20,12 @@ class App extends Component {
       return {
         randomPlanetIsOpen: !this.state.randomPlanetIsOpen,
       };
+    });
+  };
+
+  onPersonSelected = (id) => {
+    this.setState({
+      selectedPerson: id,
     });
   };
 
@@ -34,10 +41,10 @@ class App extends Component {
           />
           <div className='row mb2'>
             <div className='col-md-6'>
-              <ItemList />
+              <ItemList onItemSelected={this.onPersonSelected}/>
             </div>
             <div className='col-md-6'>
-              <PersonDetails />
+              <PersonDetails personIs={this.state.selectedPerson}/>
             </div>
           </div>
         </div>
