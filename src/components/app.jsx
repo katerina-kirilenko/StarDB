@@ -23,16 +23,11 @@ class App extends Component {
   };
 
   render() {
-    const randomPlanet =
-      this.state.randomPlanetIsOpen ? (
-      <RandomPlanet />
-    ) : null;
-
     return (
       <>
         <div className='app'>
           <Header />
-          {randomPlanet}
+          {this.state.randomPlanetIsOpen && <RandomPlanet />}
           <ButtonToggle
             value='Toggle Random Planet'
             onClickToggle={this.handleClickToggle}

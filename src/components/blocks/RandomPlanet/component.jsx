@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
-import SwapiService from "../../../api/SwapiService";
-import getPhoto from "../../../api/PhotoService";
+import SwapiService from "@api/SwapiService";
+import getPhoto from "@api/PhotoService";
 import Spinner from "../Spinner";
 import ErrorIndicator from "../ErrorIndicator";
 
 import "./style.css";
-import noPhoto from "../../../assets/no_photo.png";
+import noPhoto from "@assets/no_photo.png";
 
 export default class RandomPlanet extends Component {
   swapiService = new SwapiService();
@@ -64,21 +64,15 @@ export default class RandomPlanet extends Component {
 
   render() {
     console.log("render");
-
-    const { planet, loading, error } = this.state;
+    const { loading, error, spinner, planet, photo } = this.state;
 
     const hasData = !(loading || error);
-    const errorMessage = error ? <ErrorIndicator /> : null;
-    const spinner = loading ? <Spinner /> : null;
-    const content = hasData ? (
-      <PlanetView planet={planet} photo={this.state.photo} />
-    ) : null;
 
     return (
       <div className='random-planet d-flex jumbotron rounded'>
-        {errorMessage}
-        {spinner}
-        {content}
+        {error && <ErrorIndicator />}
+        {spinner && <Spinner />}
+        {hasData && <PlanetView planet={planet} photo={photo} />}
       </div>
     );
   }
@@ -88,7 +82,7 @@ const PlanetView = ({ planet, photo }) => {
   const { planetName, population, rotationPeriod, diameter } = planet;
 
   return (
-    <React.Fragment>
+    <>
       <div className='image-wrap'>
         <img className='planet-image' src={photo} alt={planetName} />
       </div>
@@ -109,6 +103,6 @@ const PlanetView = ({ planet, photo }) => {
           </li>
         </ul>
       </div>      
-    </React.Fragment>
+    </>
   );
 };
