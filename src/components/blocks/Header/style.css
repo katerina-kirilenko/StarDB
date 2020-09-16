@@ -4,27 +4,27 @@
   align-items: center;
 }
 
-.header h3 a {
+.logo .link {
   color: #fff;
 }
 
-.header h3 a:hover {
+.logo .link:hover {
   text-decoration: none;
 }
 
-.header ul li {
+.navigation li {
   list-style: none;
   margin: 0;
   padding: 0.5rem 1rem;
   border-radius: 3px;
 }
 
-.header ul li:hover {
+.navigation li:hover {
   background-color: #444;
   cursor: pointer;
 }
 
-.header ul li a:hover {
+.navigation .link:hover {
   color: #00bc8c;
   text-decoration: none;
 }

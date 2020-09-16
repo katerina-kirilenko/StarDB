@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./style.css";
-import icon from "../../../assets/death-star.svg";
+import icon from "@assets/death-star.svg";
 
 const ErrorIndicator = () => {
   return (
