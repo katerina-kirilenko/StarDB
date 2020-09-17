@@ -12,7 +12,8 @@ import "./style.css";
 class App extends Component {
   state = {
     randomPlanetIsOpen: true,
-    selectedPerson: null, 
+    selectedPerson: 1, 
+    hasError: false,
   };
 
   handleClickToggle = () => {
@@ -29,6 +30,10 @@ class App extends Component {
     });
   };
 
+  componentDidCatch() {
+    this.setState({ hasError: true });
+  }
+
   render() {
     return (
       <>
@@ -44,7 +49,7 @@ class App extends Component {
               <ItemList onItemSelected={this.onPersonSelected}/>
             </div>
             <div className='col-md-6'>
-              <PersonDetails personIs={this.state.selectedPerson}/>
+              <PersonDetails personId={this.state.selectedPerson}/>
             </div>
           </div>
         </div>

@@ -18,9 +18,7 @@ export default class RandomPlanet extends Component {
     error: false,
   };
 
-  componentDidMount() {
-    console.log("Did Mount");
-    
+  componentDidMount() { 
     this.updatePlanet();
     this.interval = setInterval(this.updatePlanet, 10000);
   }
@@ -44,7 +42,6 @@ export default class RandomPlanet extends Component {
   };
 
   updatePlanet = () => {
-    console.log("update");
     const id = Math.floor(Math.random() * 25) + 3;
 
     this.swapiService
@@ -63,15 +60,14 @@ export default class RandomPlanet extends Component {
   }
 
   render() {
-    console.log("render");
-    const { loading, error, spinner, planet, photo } = this.state;
+    const { loading, error, planet, photo } = this.state;
 
     const hasData = !(loading || error);
 
     return (
       <div className='random-planet d-flex jumbotron rounded'>
         {error && <ErrorIndicator />}
-        {spinner && <Spinner />}
+        {loading && <Spinner />}
         {hasData && <PlanetView planet={planet} photo={photo} />}
       </div>
     );
