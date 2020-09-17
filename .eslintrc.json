@@ -1,0 +1,66 @@
+{
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier"],
+  "env": {
+    "node": true,
+    "browser": true,
+    "jest": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "import/export": "warn",
+    "prettier/prettier": ["error"],
+    "arrow-parens": ["error", "as-needed"],
+    "prefer-destructuring": "error",
+    "max-len": [
+      "warn",
+      {
+        "code": 100,
+        "ignoreUrls": true,
+        "ignorePattern": "import"
+      }
+    ],
+    "no-unused-vars": "warn",
+    "operator-linebreak": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react/jsx-closing-tag-location": "error"
+  }
+  // ,
+  // "react/jsx-closing-bracket-location": [
+  //   "error",
+  //   {
+  //     "nonEmpty": "line-aligned",
+  //     "selfClosing": "line-aligned"
+  //   }
+  // ],
+  // "react/jsx-filename-extension": [
+  //   "error",
+  //   {
+  //     "extensions": [
+  //       ".jsx",
+  //       ".tsx"
+  //     ]
+  //   }
+  // ],
+  // "jsx-quotes": [
+  //   "error",
+  //   "prefer-double"
+  // ],
+  // "comma-dangle": [
+  //   "error",
+  //   "only-multiline"
+  // ],
+  // "prefer-const": [
+  //   "error",
+  //   {
+  //     "destructuring": "any",
+  //     "ignoreReadBeforeAssign": false
+  //   }
+  // ],
+  // "react/prop-types": ["warn"],
+  // "react/prefer-stateless-function": "error"
+}
