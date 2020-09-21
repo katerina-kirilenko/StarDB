@@ -1,3 +1,3 @@
-import StarshipDetails from "./component";
+import StarshipDetails from './component';
 
 export default StarshipDetails;

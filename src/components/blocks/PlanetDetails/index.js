@@ -1,3 +1,3 @@
-import PlanetDetails from "./component";
+import PlanetDetails from './component';
 
 export default PlanetDetails;

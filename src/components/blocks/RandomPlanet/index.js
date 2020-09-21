@@ -1,3 +1,3 @@
-import RandomPlanet from "./component";
+import RandomPlanet from './component';
 
 export default RandomPlanet;

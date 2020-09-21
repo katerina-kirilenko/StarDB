@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import "./style.css";
+import './style.css';
 
 const StarshipDetails = () => {
-  return <div className='starship-details'></div>;
+  return <div className="starship-details" />;
 };
 
 export default StarshipDetails;

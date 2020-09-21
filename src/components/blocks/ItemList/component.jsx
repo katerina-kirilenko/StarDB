@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import SwapiService from "@api/SwapiService";
-import Spinner from "../Spinner";
+import SwapiService from '@/api/SwapiService';
+import Spinner from '@/components/blocks/Spinner';
 
-import "./style.css";
+import './style.css';
 
 export default class ItemList extends Component {
   swapiService = new SwapiService();
@@ -24,7 +24,7 @@ export default class ItemList extends Component {
     return arr.map(({id, personName}) => {
       return (
         <li
-          className='list-group-item'
+          className="list-group-item"
           key={id}
           onClick={() => this.props.onItemSelected(id)}
         >
@@ -44,7 +44,7 @@ export default class ItemList extends Component {
     const items = this.renderItems(peopleList);
 
     return (
-      <ul className='item-list list-group'>
+      <ul className="item-list list-group">
         {items}
       </ul>
     );

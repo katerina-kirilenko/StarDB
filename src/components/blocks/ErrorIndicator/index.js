@@ -1,3 +1,3 @@
-import ErrorIndicator from "./component";
+import ErrorIndicator from './component';
 
 export default ErrorIndicator;

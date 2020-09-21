@@ -1,18 +1,18 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import Header from "./blocks/Header";
-import RandomPlanet from "./blocks/RandomPlanet";
-import ItemList from "./blocks/ItemList";
-import PersonDetails from "./blocks/PersonDetails";
-import AppBackground from "./blocks/AppBackground";
-import ButtonToggle from "./controls/ButtonToggle";
+import Header from '@/components/blocks/Header';
+import RandomPlanet from '@/components/blocks/RandomPlanet';
+import ItemList from '@/components/blocks/ItemList';
+import PersonDetails from '@/components/blocks/PersonDetails';
+import AppBackground from '@/components/blocks/AppBackground';
+import ButtonToggle from '@/components/controls/ButtonToggle';
 
-import "./style.css";
+import './style.css';
 
 class App extends Component {
   state = {
     randomPlanetIsOpen: true,
-    selectedPerson: 1, 
+    selectedPerson: '1',
     hasError: false,
   };
 
@@ -37,19 +37,16 @@ class App extends Component {
   render() {
     return (
       <>
-        <div className='app'>
+        <div className="app">
           <Header />
           {this.state.randomPlanetIsOpen && <RandomPlanet />}
-          <ButtonToggle
-            value='Toggle Random Planet'
-            onClickToggle={this.handleClickToggle}
-          />
-          <div className='row mb2'>
-            <div className='col-md-6'>
-              <ItemList onItemSelected={this.onPersonSelected}/>
+          <ButtonToggle value="Toggle Random Planet" onClickToggle={this.handleClickToggle} />
+          <div className="row mb2">
+            <div className="col-md-6">
+              <ItemList onItemSelected={this.onPersonSelected} />
             </div>
-            <div className='col-md-6'>
-              <PersonDetails personId={this.state.selectedPerson}/>
+            <div className="col-md-6">
+              <PersonDetails personId={this.state.selectedPerson} />
             </div>
           </div>
         </div>

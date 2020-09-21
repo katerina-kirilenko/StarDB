@@ -1,3 +1,3 @@
-import AppBackground from "./component";
+import AppBackground from './component';
 
 export default AppBackground;

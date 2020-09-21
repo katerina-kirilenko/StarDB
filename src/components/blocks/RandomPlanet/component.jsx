@@ -1,12 +1,13 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import SwapiService from "@api/SwapiService";
-import getPhoto from "@api/PhotoService";
-import Spinner from "../Spinner";
-import ErrorIndicator from "../ErrorIndicator";
+import SwapiService from '@/api/SwapiService';
+import getPhoto from '@/api/PhotoService';
+import Spinner from '@/components/blocks/Spinner';
+import ErrorIndicator from '@/components/blocks/ErrorIndicator';
+import PlanetView from '@/components/blocks/RandomPlanet/components/PlanetView';
 
-import "./style.css";
-import noPhoto from "@assets/no_photo.png";
+import './style.css';
+import noPhoto from '@/assets/no_photo.png';
 
 export default class RandomPlanet extends Component {
   swapiService = new SwapiService();
@@ -53,8 +54,8 @@ export default class RandomPlanet extends Component {
   };
 
   async updatePhoto(id) {
-    const response = await getPhoto("planets", id);
-    let url = !response.ok ? noPhoto : response.url;
+    const response = await getPhoto('planets', id);
+    const url = !response.ok ? noPhoto : response.url;
 
     this.setState({ photo: url });
   }
@@ -65,7 +66,7 @@ export default class RandomPlanet extends Component {
     const hasData = !(loading || error);
 
     return (
-      <div className='random-planet d-flex jumbotron rounded'>
+      <div className="random-planet d-flex jumbotron rounded">
         {error && <ErrorIndicator />}
         {loading && <Spinner />}
         {hasData && <PlanetView planet={planet} photo={photo} />}
@@ -73,32 +74,3 @@ export default class RandomPlanet extends Component {
     );
   }
 }
-
-const PlanetView = ({ planet, photo }) => {
-  const { planetName, population, rotationPeriod, diameter } = planet;
-
-  return (
-    <>
-      <div className='image-wrap'>
-        <img className='planet-image' src={photo} alt={planetName} />
-      </div>
-      <div className='planet-description'>
-        <h4>{planetName}</h4>
-        <ul className='list-group list-group-flush'>
-          <li className='list-group-item'>
-            <span className='term'>Population:</span>
-            <span>{population}</span>
-          </li>
-          <li className='list-group-item'>
-            <span className='term'>Rotation Period:</span>
-            <span>{rotationPeriod}</span>
-          </li>
-          <li className='list-group-item'>
-            <span className='term'>Diameter:</span>
-            <span>{diameter}</span>
-          </li>
-        </ul>
-      </div>      
-    </>
-  );
-};

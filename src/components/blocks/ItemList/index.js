@@ -1,3 +1,3 @@
-import ItemList from "./component";
+import ItemList from './component';
 
 export default ItemList;

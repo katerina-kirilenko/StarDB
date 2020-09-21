@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import "./style.css";
+import './style.css';
 
 const AppBackground = () => {
   return (
-    <div className='background-app'>
-      <div className='stars'></div>
-      <div className='twinkling'></div>
-      <div className='clouds'></div>
+    <div className="background-app">
+      <div className="stars" />
+      <div className="twinkling" />
+      <div className="clouds" />
     </div>
   );
 };

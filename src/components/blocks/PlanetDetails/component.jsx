@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import "./style.css";
+import './style.css';
 
 const PlanetDetails = () => {
-  return <div className='planet-details'></div>;
+  return <div className="planet-details" />;
 };
 
 export default PlanetDetails;
