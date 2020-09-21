@@ -1,20 +1,30 @@
 {
   "extends": ["airbnb", "prettier"],
-  "plugins": ["prettier"],
+  "plugins": ["prettier", "react-hooks"],
   "env": {
     "node": true,
     "browser": true,
     "jest": true
   },
   "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [["@", "./src"]],
+        "extensions": [".js", ".jsx"]
+      }
+    },
     "react": {
       "version": "detect"
     }
   },
   "rules": {
     "import/export": "warn",
-    "prettier/prettier": ["error"],
-    "arrow-parens": ["error", "as-needed"],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "prefer-destructuring": "error",
     "max-len": [
       "warn",
@@ -24,43 +34,42 @@
         "ignorePattern": "import"
       }
     ],
+    "react/no-unused-state": "warn",
     "no-unused-vars": "warn",
     "operator-linebreak": "warn",
     "react-hooks/rules-of-hooks": "error",
-    "react/jsx-closing-tag-location": "error"
-  }
-  // ,
-  // "react/jsx-closing-bracket-location": [
-  //   "error",
-  //   {
-  //     "nonEmpty": "line-aligned",
-  //     "selfClosing": "line-aligned"
-  //   }
-  // ],
-  // "react/jsx-filename-extension": [
-  //   "error",
-  //   {
-  //     "extensions": [
-  //       ".jsx",
-  //       ".tsx"
-  //     ]
-  //   }
-  // ],
-  // "jsx-quotes": [
-  //   "error",
-  //   "prefer-double"
-  // ],
-  // "comma-dangle": [
-  //   "error",
-  //   "only-multiline"
-  // ],
-  // "prefer-const": [
-  //   "error",
-  //   {
-  //     "destructuring": "any",
-  //     "ignoreReadBeforeAssign": false
-  //   }
-  // ],
-  // "react/prop-types": ["warn"],
-  // "react/prefer-stateless-function": "error"
+    "react/jsx-closing-tag-location": "error",
+    "react/jsx-closing-bracket-location": [
+      "error",
+      {
+        "nonEmpty": "line-aligned",
+        "selfClosing": "line-aligned"
+      }
+    ],
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [".jsx", ".tsx"]
+      }
+    ],
+    "jsx-quotes": ["error", "prefer-double"],
+    "comma-dangle": ["error", "only-multiline"],
+    "prefer-const": [
+      "error",
+      {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": false
+      }
+    ],
+    "react/prop-types": ["warn"],
+    "react/prefer-stateless-function": "error"
+  },
+  "overrides": [
+    {
+      "files": ["src/index.js"],
+      "rules": {
+        "react/jsx-filename-extension": "off"
+      }
+    }
+  ]
 }

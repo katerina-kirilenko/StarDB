@@ -1,16 +1,14 @@
-const { override, addWebpackResolve } = require("customize-cra");
-const path = require("path");
+const { override, addWebpackResolve } = require('customize-cra');
+const path = require('path');
 
 module.exports = override(
   addWebpackResolve({
     alias: {
-      "@components": path.resolve(__dirname, "./src/components"),
-      "@assets": path.resolve(__dirname, "./src/assets"),
-      "@api": path.resolve(__dirname, "./src/api"),
+      '@': path.resolve(__dirname, './src'),
 
       // for .css
-      images: path.resolve(__dirname, "./src/assets"),
+      images: path.resolve(__dirname, './src/assets'),
     },
-    extensions: [".ts", ".tsx", ".js", ".jsx", ".css"],
-  })
+    extensions: ['.js', '.jsx', '.css'],
+  }),
 );
