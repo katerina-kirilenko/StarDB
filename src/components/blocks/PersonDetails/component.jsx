@@ -1,79 +1,33 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-import SwapiService from "@api/SwapiService";
-import Spinner from "../Spinner";
+import SwapiService from '@/api/SwapiService';
+import Spinner from '@/components/blocks/Spinner';
+import PersonView from '@/components/blocks/PersonDetails/components/PersonView';
 
-import "./style.css";
+import './style.css';
 
-export default class PersonDetails extends Component {
-  swapiService = new SwapiService();
+function PersonDetails({ personId }) {
+  const swapiService = new SwapiService();
 
-  state = {
-    person: null,
-  };
+  const [person, setPerson] = useState({});
 
-  componentDidMount() {
-    this.updatePerson();
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.personId !== prevProps.personId) {
-      this.updatePerson();
-    }
-  }
-
-  updatePerson() {
-    const { personId } = this.props;
-
-    if (!personId) return;
-
-    this.swapiService
-      .getPerson(personId)
-      .then((person) => {
-      this.setState({ person });
+  useEffect(() => {
+    swapiService.getPerson(personId).then((personData) => {
+      setPerson(personData);
     });
-  }
-
-  render() {
-    const { person } = this.state;
-
-    if (!person) return <Spinner />;    
-
-    return (
-      <div className="person-details card">
-        <PersonView person={person} />
-      </div>
-    );
-  }
-}
-
-const PersonView = ({ person }) => {
-  const { id, personName, gender, birthYear, eyeColor } = person;
+    return () => setPerson({});
+  }, [personId]);
 
   return (
-    <>
-      <img
-        src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
-        alt={personName}
-        className='person-image'
-      />
-      <div className='card-body'>
-        <h4>{personName}</h4>
-        <ul className='list-group list-group-flush'>
-          <li className='list-group-item'>
-            <span className='term'>Gender:</span>
-            <span>{gender}</span>
-          </li>
-          <li className='list-group-item'>
-            <span className='term'>Birth Year:</span>
-            <span>{birthYear}</span>
-          </li>
-          <li className='list-group-item'>
-            <span className='term'>Eye Color:</span>
-            <span>{eyeColor}</span>
-          </li>
-        </ul>
-      </div>
-    </>
+    <div className="person-details card">
+      {Object.keys(person).length === 0 ? <Spinner /> : <PersonView person={person} />}
+    </div>
   );
+}
+
+PersonDetails.propTypes = {
+  personId: PropTypes.string.isRequired,
 };
+
+export default PersonDetails;
